@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_event"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="@string/title_event" />
+
+
+    <item
+        android:id="@+id/navigation_complain"
+        android:icon="@android:drawable/ic_menu_report_image"
+        android:title="@string/title_complain" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@android:drawable/sym_contact_card"
+        android:title="@string/title_profile" />
+
+</menu>

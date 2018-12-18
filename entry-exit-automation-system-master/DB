@@ -1,0 +1,135 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.0
+-- Dumped by pg_dump version 11.0
+
+-- Started on 2018-11-06 06:08:41
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+DROP DATABASE postgres;
+--
+-- TOC entry 2821 (class 1262 OID 13012)
+-- Name: postgres; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE postgres WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'English_India.1252' LC_CTYPE = 'English_India.1252';
+
+
+ALTER DATABASE postgres OWNER TO postgres;
+
+\connect postgres
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 2822 (class 0 OID 0)
+-- Dependencies: 2821
+-- Name: DATABASE postgres; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE postgres IS 'default administrative connection database';
+
+
+--
+-- TOC entry 1 (class 3079 OID 16384)
+-- Name: adminpack; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS adminpack WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2823 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION adminpack; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION adminpack IS 'administrative functions for PostgreSQL';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 198 (class 1259 OID 16489)
+-- Name: login; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.login (
+    hashed_password character varying NOT NULL,
+    roll_no character varying(10) NOT NULL
+);
+
+
+ALTER TABLE public.login OWNER TO postgres;
+
+--
+-- TOC entry 197 (class 1259 OID 16396)
+-- Name: student; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.student (
+    name character varying(30) NOT NULL,
+    roll_no character varying(10) NOT NULL,
+    gender character varying(6) NOT NULL,
+    branch character varying NOT NULL,
+    year bigint NOT NULL,
+    contact_number bigint NOT NULL
+);
+
+
+ALTER TABLE public.student OWNER TO postgres;
+
+--
+-- TOC entry 2693 (class 2606 OID 16496)
+-- Name: login login_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.login
+    ADD CONSTRAINT login_pkey PRIMARY KEY (roll_no);
+
+
+--
+-- TOC entry 2691 (class 2606 OID 16481)
+-- Name: student student_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student
+    ADD CONSTRAINT student_pkey PRIMARY KEY (roll_no);
+
+
+--
+-- TOC entry 2694 (class 2606 OID 16497)
+-- Name: login fk_roll_no; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.login
+    ADD CONSTRAINT fk_roll_no FOREIGN KEY (roll_no) REFERENCES public.student(roll_no);
+
+
+-- Completed on 2018-11-06 06:08:42
+
+--
+-- PostgreSQL database dump complete
+--
+

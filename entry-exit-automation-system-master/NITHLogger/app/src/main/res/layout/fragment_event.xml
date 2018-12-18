@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".events.EventFragment">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".rating.ShowRatings">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="272dp"
+            android:src="@drawable/nit"
+            app:layout_anchor="@+id/show_event"
+            app:layout_anchorGravity="top|center" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stay tuned to find out new events and their details."
+            android:layout_below="@+id/imageView"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/show_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="See events"
+            android:layout_below="@+id/textView"/>
+    </RelativeLayout>
+
+</FrameLayout>
